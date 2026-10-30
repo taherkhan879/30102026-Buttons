@@ -1,0 +1,333 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ffb6c8;
+    --purple: #4b087a;
+    --green: #075c21;
+    --blue-glow: #00bfff;
+    --purple-glow: #d946ef;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--pink);
+    color: #25102f;
+}
+
+
+/* Header */
+
+header {
+    text-align: center;
+    padding: 35px 15px 30px;
+}
+
+.tags {
+    color: #c92d39;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+h1 {
+    color: var(--purple);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 5vw, 52px);
+    text-shadow: 2px 3px 5px #a97caa;
+}
+
+.subtitle {
+    margin-top: 12px;
+    font-size: 15px;
+    color: #63304f;
+}
+
+
+/* Main layout */
+
+.main-section{
+   display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+.main {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    border-top: 2px solid #888;
+    border-bottom: 2px solid #888;
+    display: flex;
+    flex-direction: row;
+}
+
+.demo {
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 10px;
+    overflow: hidden;
+}
+
+.demo h2 {
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+
+/* Light theme */
+
+.light-theme {
+    background: #eeeeee;
+    color: #555;
+}
+
+.light-theme .selector {
+    --accent: #c02b99;
+    --accent-rgb: 192, 43, 153;
+    --surface: #eeeeee;
+    --text: #777;
+    --shadow-dark: #cecece;
+    --shadow-light: #ffffff;
+}
+
+
+/* Dark theme */
+
+.dark-theme {
+    background: #151b23;
+    color: #aaa;
+}
+
+.dark-theme .selector {
+    --accent: #00bfff;
+    --accent-rgb: 0, 191, 255;
+    --surface: #151b23;
+    --text: #999;
+    --shadow-dark: #0d1117;
+    --shadow-light: #202936;
+}
+
+
+/* Circular selector */
+
+.selector {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    max-width: 75vw;
+    max-height: 75vw;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface);
+
+    box-shadow:
+        12px 12px 24px var(--shadow-dark),
+        -12px -12px 24px var(--shadow-light);
+
+    transition: box-shadow 0.4s ease;
+}
+
+
+/* Center button */
+
+/* Make the center button circular */ .knob { position: absolute; z-index: 5; width: 105px; height: 105px; border: none; border-radius: 50%; background: var(--surface); cursor: pointer; display: flex; align-items: flex-start; justify-content: center; padding-top: 18px; box-shadow: 8px 8px 15px var(--shadow-dark), -8px -8px 15px var(--shadow-light); transition: transform 0.4s ease; }
+
+.knob-light {
+    display: block;
+    width: 4px;
+    height: 14px;
+    border-radius: 5px;
+    background: var(--accent);
+
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.knob:hover {
+    box-shadow:
+        0 0 18px rgba(var(--accent-rgb), 0.25),
+        8px 8px 15px var(--shadow-dark),
+        -8px -8px 15px var(--shadow-light);
+}
+/* Glow when the menu opens */ .selector.active .knob { box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.45), inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light); }
+
+/* Menu list */
+
+/* Circular menu container */ .menu { position: absolute; inset: 0; list-style: none; border-radius: 50%; }
+
+/* Position each menu item around the center */ .menu li { position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; margin: 0; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) rotate(calc(var(--i) * 60deg)) translateY(0) rotate(calc(var(--i) * -60deg)); transition: transform 0.5s ease, opacity 0.35s ease; }
+
+
+/* Display menu items when active */
+
+.selector.active .menu li { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) rotate(calc(var(--i) * 60deg)) translateY(-96px) rotate(calc(var(--i) * -60deg)); }
+
+
+/* Menu item buttons */
+
+.menu-item {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface);
+    color: var(--text);
+
+    font-size: 22px;
+    cursor: pointer;
+
+    box-shadow:
+        4px 4px 8px var(--shadow-dark),
+        -4px -4px 8px var(--shadow-light);
+
+    transition:
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.menu-item:hover,
+.menu-item.selected {
+    color: var(--accent);
+
+    box-shadow:
+        0 0 15px rgba(var(--accent-rgb), 0.35),
+        inset 0 0 5px rgba(var(--accent-rgb), 0.15);
+}
+
+.menu-item:active {
+    transform: scale(0.9);
+}
+
+
+/* Hide labels until the menu opens */
+
+.menu-label {
+    position: absolute;
+
+    left: 50%;
+    top: calc(100% + 8px);
+
+    transform: translateX(-50%) translateY(-4px);
+
+    font-size: 11px;
+    white-space: nowrap;
+
+    opacity: 0;
+    pointer-events: none;
+
+    color: var(--text);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.selector.active .menu-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* Status text */
+
+.status {
+    min-height: 20px;
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 25px 10px;
+    text-align: center;
+    color: #63304f;
+    font-size: 14px;
+}
+
+
+/* Keyboard accessibility */
+
+button:focus-visible {
+    outline: 3px solid var(--purple-glow);
+    outline-offset: 5px;
+}
+
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 25px 10px;
+    }
+
+    .tags {
+        margin-bottom: 25px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .demo {
+        min-height: 380px;
+    }
+
+    .selector {
+        width: 230px;
+        height: 230px;
+    }
+
+    .selector.active .menu li {
+        transform:
+            rotate(calc(var(--i) * 60deg - 90deg))
+            translateX(85px)
+            rotate(calc(var(--i) * -60deg + 90deg));
+    }
+
+    .knob {
+        width: 95px;
+        height: 95px;
+    }
+}
+
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
