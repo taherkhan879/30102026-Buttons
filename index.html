@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Futuristic Menu Button</title>
+
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.jsx" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <p class="tags">#html &nbsp; #css &nbsp; #JS</p>
+        <h1>Futuristic Menu Button</h1>
+        <p class="subtitle">
+            A modern circular menu with glowing effects
+        </p>
+    </header>
+
+    <main>
+      <div class="main-section">
+        <!-- Light Theme -->
+        <section class="demo light-theme">
+
+            <h2>Light Theme</h2>
+
+            <div class="selector">
+
+                <button
+                    class="knob"
+                    type="button"
+                    aria-label="Toggle light theme menu"
+                    aria-expanded="false"
+                >
+                    <span class="knob-light"></span>
+                </button>
+
+                <ul class="menu">
+
+                    <li style="--i: 0">
+                        <button type="button" class="menu-item" data-action="Back">
+                            <span class="menu-icon">←</span>
+                            <span class="menu-label">Back</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 1">
+                        <button type="button" class="menu-item" data-action="Home">
+                            <span class="menu-icon">⌂</span>
+                            <span class="menu-label">Home</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 2">
+                        <button type="button" class="menu-item" data-action="Search">
+                            <span class="menu-icon">⌕</span>
+                            <span class="menu-label">Search</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 3">
+                        <button type="button" class="menu-item" data-action="Star">
+                            <span class="menu-icon">☆</span>
+                            <span class="menu-label">Star</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 4">
+                        <button type="button" class="menu-item" data-action="More">
+                            <span class="menu-icon">⋮</span>
+                            <span class="menu-label">More</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 5">
+                        <button type="button" class="menu-item" data-action="Refresh">
+                            <span class="menu-icon">⟳</span>
+                            <span class="menu-label">Refresh</span>
+                        </button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <p class="status" aria-live="polite">
+                Click the center button
+            </p>
+
+        </section>
+
+
+        <!-- Dark Theme -->
+        <section class="demo dark-theme">
+
+            <h2>Dark Theme</h2>
+
+            <div class="selector">
+
+                <button
+                    class="knob"
+                    type="button"
+                    aria-label="Toggle dark theme menu"
+                    aria-expanded="false"
+                >
+                    <span class="knob-light"></span>
+                </button>
+
+                <ul class="menu">
+
+                    <li style="--i: 0">
+                        <button type="button" class="menu-item" data-action="Back">
+                            <span class="menu-icon">←</span>
+                            <span class="menu-label">Back</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 1">
+                        <button type="button" class="menu-item" data-action="Home">
+                            <span class="menu-icon">⌂</span>
+                            <span class="menu-label">Home</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 2">
+                        <button type="button" class="menu-item" data-action="Search">
+                            <span class="menu-icon">⌕</span>
+                            <span class="menu-label">Search</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 3">
+                        <button type="button" class="menu-item" data-action="Star">
+                            <span class="menu-icon">☆</span>
+                            <span class="menu-label">Star</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 4">
+                        <button type="button" class="menu-item" data-action="More">
+                            <span class="menu-icon">⋮</span>
+                            <span class="menu-label">More</span>
+                        </button>
+                    </li>
+
+                    <li style="--i: 5">
+                        <button type="button" class="menu-item" data-action="Refresh">
+                            <span class="menu-icon">⟳</span>
+                            <span class="menu-label">Refresh</span>
+                        </button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <p class="status" aria-live="polite">
+                Click the center button
+            </p>
+
+        </section>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <p>Designed with HTML, CSS and JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
